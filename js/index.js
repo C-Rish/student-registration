@@ -1,46 +1,83 @@
 const listdiv = document.querySelector(".students-list");
-// const name1 =  document.getElementById("name");
-// const email =  document.getElementById("email");
-// const address =  document.getElementById("address");
-// const age =  document.getElementById("age");
-// const gender =  document.querySelector(".gender");
-// const ptext = document.querySelector('p');
-
-let formItems = [];
-const addItem = (e)=>{
+const para = document.querySelector('.new-div p');
+// Initialize localstorage if its non existent
+// check if studentlist already exists
+// if (localStorage.setItem("studentsList", JSON.stringify(studentList)) != "") {
+  // localStorage.setItem("studentsList", JSON.stringify(studentList));
+  // }
+  // Create Student
+  let studentList = [];
+ 
+  const addItem = (e) => {
   e.preventDefault();
   let item = {
+    id: Math.floor(Math.random() * 100),
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     address: document.getElementById("address").value,
-    age: document.getElementById("age").value
-  }
+    age: document.getElementById("age").value,
+  };
+  console.log(item);
+  studentList.push(item);
 
-  var newEntry = `
-  <div class="student-info">
-      <h5>Name:</h5> <p class="name">${item.name}</p>
-      <h5>Age:</h5> <p class="age">${item.age}</p>
-      <h5>Email:</h5> <p class="email">${item.email}</p>
-      <h5>Address:</h5> <p class="address">${item.address}</p>
-      <h5>Gender:</h5> <p class="name"></p>
-      
-            <div class="icons">
-            <i class="fas fa-edit edit"></i>
-            <i class="fas fa-trash-alt delete"></i>
-            </div>
-  </div>
-  `;
-        
-  listdiv.innerHTML = newEntry;
-  formItems.push(item);
-  document.querySelector('form').reset();
+  // localStorage.setItem("studentsList", JSON.stringify(studentList));
 
-  console.log(formItems);
-  localStorage.setItem("studentsList", JSON.stringify(formItems));
-}
+  const div = document.createElement("div");
+  const deleteIcon = document.createElement('i');
+  deleteIcon.classList.add("fas","fa-trash-alt");
+  const editIcon = document.createElement('i');
+  editIcon.classList.add("fas","fa-edit");
+  div.classList.add("new-div");
+  div.innerHTML = `ID: <p> ${item.id}</p>
+                   Name: <p>${item.name}</p> 
+                   Email: <p>${item.email}</p> 
+                   Address: <p>${item.address}</p>
+                   age:<p>${item.age}</p>
+                   gender: <p>${item.gender}</p>
+                   `;
 
-document.addEventListener('DOMContentLoaded', ()=> {
+  div.appendChild(deleteIcon);
+  div.appendChild(editIcon);
+  listdiv.appendChild(div);
+
+  let student = [];
+  student.push(div);
+
+  deleteIcon.addEventListener("click", (e) => {
+    e.preventDefault();
+    div.remove();
+  });
+
+  editIcon.addEventListener("click",editItem);
+
+};
+
+const editItem = (e) => {
+  // first get the entire list
+  // find the student with matching ID
+  let student = {
+    id: 123,
+    name: 'AA',
+    email: 'B',
+    address: 'C',
+    age: 12,
+  };
+  // show the data in HTML
+  // make edits
+  // and save as we did while creating new student\
+  // e.preventDefault();
+  const paraGroup = document.querySelectorAll('.new-div p');
+  paraGroup.forEach(para => {
+    para.setAttribute("contentEditable","true");
+    para.addEventListener("keypress", (e) => {
+      if(e.key === "Enter"){
+        para.setAttribute("contentEditable","false");
+      }
+    });
+  });
+
+};
+
+document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("button").addEventListener("click", addItem);
 });
-
-        
