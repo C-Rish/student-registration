@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url("../img/bg-img.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+body:before {
+  z-index: -100;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.home-page {
+  display: flex;
+  height: 100vh;
+}
+
+/* NAVIGATION SECTION */
+.navigation {
+  background-color: rgb(73, 68, 68);
+  color: white;
+  font-size: 12rem;
+  flex: 1 1 25%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item a {
+  padding: 1rem;
+}
+.nav-item a:hover {
+  background-color: white;
+  color: grey;
+}
+
+/* FORM REGRISTRATION CENTER */
+.register-form {
+  flex: 1 1 75%;
+  font-size: 8rem;
+  /* background: rgba(0, 0, 0, 0.6); */
+  box-sizing: border-box;
+}
+
+.register-form span {
+  font-size: 1.5rem;
+  color: rgb(28, 202, 28);
+}
+
+form {
+  font-size: 4rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 5rem;
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 1rem;
+}
+
+.register-form .gender {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+}
+.register-form .gender label {
+  margin-right: 2rem;
+}
+.register-form .gender input {
+  margin-right: 1rem;
+}
+
+input {
+  height: 4.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+button {
+  border-radius: 1rem;
+  padding: 0.5rem 0;
+}
+button:hover,
+button:active {
+  background-color: greenyellow;
+}
+
+/* VIEW PAGE SECTION */
+.view-page {
+  display: flex;
+  height: 100vh;
+}
+
+.students-list {
+  flex: 1 1 75%;
+  font-size: 8rem;
+  box-sizing: border-box;
+}
+
+.students-list h2 {
+  font-size: 5rem;
+  color: white;
+}
+
+.student-info {
+  background-color: white;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.student-info .icons {
+  font-size: 2.5rem;
+  padding-bottom: 0.8rem;
+  position: absolute;
+  right: 1rem;
+}
+
+.submit {
+  height: 4rem;
+  width: 10rem;
+  font-size: 2rem;
+}
+
+.red {
+  color: red;
+}

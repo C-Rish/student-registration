@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <!-- FONT AWESOME CSS -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+  <div class="home-page">
+    <div class="navigation">
+      <ul>
+        <li class="nav-item"> <a href="index.html"><i class="fas fa-user-graduate"></i> Register a Student</a></li>
+        <li class="nav-item"> <a href="view.html"><i class="far fa-address-book"></i> View Students</a></li>
+        <li class="nav-item"> <a href=""><i class="far fa-address-card"></i> About Us</a></li>
+        <li class="nav-item"> <a href=""><i class="fas fa-tty"></i>  Contact Us</a></li>
+      </ul>
+    </div>
+  
+    <div class="register-form">
+      <form method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter Your Name"> 
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter Your Email"> 
+        <span>You Must Be At Least 16 to register</span>
+        <label for="age">Age</label>
+        <input type="text" id="age" placeholder="Age"> 
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Enter Your Address"> 
+        <div class="gender">
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female" checked>
+          <label for="female">Female</label>
+          <input type="radio" id="others" name="gender" value="other">
+          <label for="others">Others</label>
+        </div>
+        <div class="profile">
+          <label for="pic">Choose a profile picture:</label>
+          <input type="file" id="pic" name="profile" accept="image/png, image/jpeg">
+        </div>
+
+        <button type="button" > Submit Form</button>
+        <!--  onclick="getInputValue();" -->
+        <div id="msg">
+          <pre></pre>
+        </div>
+      </form>
+    </div>
+
+
+    
+  </div>
+
+
+  <script src="js/index.js"></script>
+</body>
+</html>
