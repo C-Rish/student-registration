@@ -1,3 +1,32 @@
 {
-  "students": []
+  "students": [
+    {
+      "name": "Shirishs",
+      "age": "222",
+      "address": "asdasd",
+      "email": "someone@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "asdasd",
+      "age": "12",
+      "address": "asdas",
+      "email": "dsad@sda.coms",
+      "id": 2
+    },
+    {
+      "name": "asd",
+      "age": "12",
+      "address": "asdad",
+      "email": "shirishkhadgi23@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "asd",
+      "age": "88",
+      "address": "sadas",
+      "email": "asdas@gmail.com",
+      "id": 4
+    }
+  ]
 }

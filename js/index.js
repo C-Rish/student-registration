@@ -38,13 +38,17 @@ const createStudent = async (e) => {
     email: form.email.value
   }
 
-  await fetch('http://localhost:3000/students', {
-    method: 'POST',
-    body: JSON.stringify(doc),
-    headers: {'Content-Type': 'application/json'}
-  });
+  if (doc.name != "" && doc.age != "" && doc.address != "" && doc.email !=""){
+    await fetch('http://localhost:3000/students', {
+      method: 'POST',
+      body: JSON.stringify(doc),
+      headers: {'Content-Type': 'application/json'}
+    });
+    window.location.replace('/index.html');
+  } else {
+    alert("Mandatory fields are blank");
+  }
 
-  window.location.replace('/index.html');
 
 }
 
