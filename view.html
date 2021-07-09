@@ -24,30 +24,38 @@
 
     
     <!-- <button class="submit" type="button" > Add</button> -->
-    <div class="students-list">
-      <h2>List of Students</h2>
-      <!-- 
-      <div class="student-info">
-        <h5>Name:</h5> <p class="name">Shirish</p>
-        <h5>Age:</h5> <p class="age">18</p>
-        <h5>Email:</h5> <p class="email">email</p>
-        <h5>Address:</h5> <p class="address">Address</p>
-        <h5>Gender:</h5> <p class="name">Male</p>
-
-        <div class="icons">
-          <i class="fas fa-edit edit"></i>
-          <i class="fas fa-trash-alt delete"></i>
+    <div class="view-main">
+      <div class="view-list">
+      </div>
+      <button class="delete">Delete</button>
+      <form class="form2">
+        <h2>Update Data</h2>
+        <div class="name">
+          <label for="name">Name</label>
+          <input name = "name" type="text" id="name" placeholder="Enter Your Name"> 
         </div>
-      </div> -->
-      
+        <div class="email">
+          <label for="email">Email</label>
+          <input name = "email" type="email" id="email" placeholder="Enter Your Email"> 
+        </div>
+        <div class="age">
+          <label for="age">Age</label>
+          <input name = "age" type="text" id="age" placeholder="Age"> 
+        </div>
+        <div class="address">
+          <label for="address">Address</label>
+          <input name = "address" type="text" id="address" placeholder="Enter Your Address"> 
+        </div>
+        <input class="submit" type="submit" value = "Update">
+
+      </form>
+    </div>
     </div>
 
-
-
-    </div>
   
 
 
   <script src="js/index.js"></script>
+  <script src="js/view.js"></script>
 </body>
 </html>

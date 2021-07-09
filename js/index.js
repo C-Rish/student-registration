@@ -1,83 +1,52 @@
 const listdiv = document.querySelector(".students-list");
 const para = document.querySelector('.new-div p');
-// Initialize localstorage if its non existent
-// check if studentlist already exists
-// if (localStorage.setItem("studentsList", JSON.stringify(studentList)) != "") {
-  // localStorage.setItem("studentsList", JSON.stringify(studentList));
-  // }
-  // Create Student
-  let studentList = [];
- 
-  const addItem = (e) => {
+const studentAdd = document.querySelector(".student-section");
+
+
+const loadStudents = async () => {
+  let url = 'http://localhost:3000/students';
+
+  const response = await fetch(url);
+  const students = await response.json();
+  
+  let template = '';
+  students.forEach(student1 => {
+    template += `
+    <div class = "student">
+      <p><span>Name:</span><small>${student1.name} </small</p>
+      <p><span>Address:</span><small>${student1.address} </small</p>
+      <p><span>Age:</span><small>${student1.age} </small</p>
+      <p><span>Email:</span><small>${student1.email} </small</p>
+      <a href = "/view.html?id=${student1.id}" class = "view-link">View</a>
+    </div>
+    `
+  });
+
+  studentAdd.innerHTML = template;
+}
+window.addEventListener('DOMContentLoaded', ()=> loadStudents());
+
+// CREATE MODE
+const form = document.querySelector('.form1');
+const createStudent = async (e) => {
   e.preventDefault();
-  let item = {
-    id: Math.floor(Math.random() * 100),
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    address: document.getElementById("address").value,
-    age: document.getElementById("age").value,
-  };
-  console.log(item);
-  studentList.push(item);
 
-  // localStorage.setItem("studentsList", JSON.stringify(studentList));
+  const doc = {
+    name: form.name.value,
+    age: form.age.value,
+    address: form.address.value,
+    email: form.email.value
+  }
 
-  const div = document.createElement("div");
-  const deleteIcon = document.createElement('i');
-  deleteIcon.classList.add("fas","fa-trash-alt");
-  const editIcon = document.createElement('i');
-  editIcon.classList.add("fas","fa-edit");
-  div.classList.add("new-div");
-  div.innerHTML = `ID: <p> ${item.id}</p>
-                   Name: <p>${item.name}</p> 
-                   Email: <p>${item.email}</p> 
-                   Address: <p>${item.address}</p>
-                   age:<p>${item.age}</p>
-                   gender: <p>${item.gender}</p>
-                   `;
-
-  div.appendChild(deleteIcon);
-  div.appendChild(editIcon);
-  listdiv.appendChild(div);
-
-  let student = [];
-  student.push(div);
-
-  deleteIcon.addEventListener("click", (e) => {
-    e.preventDefault();
-    div.remove();
+  await fetch('http://localhost:3000/students', {
+    method: 'POST',
+    body: JSON.stringify(doc),
+    headers: {'Content-Type': 'application/json'}
   });
 
-  editIcon.addEventListener("click",editItem);
+  window.location.replace('/index.html');
 
-};
+}
 
-const editItem = (e) => {
-  // first get the entire list
-  // find the student with matching ID
-  let student = {
-    id: 123,
-    name: 'AA',
-    email: 'B',
-    address: 'C',
-    age: 12,
-  };
-  // show the data in HTML
-  // make edits
-  // and save as we did while creating new student\
-  // e.preventDefault();
-  const paraGroup = document.querySelectorAll('.new-div p');
-  paraGroup.forEach(para => {
-    para.setAttribute("contentEditable","true");
-    para.addEventListener("keypress", (e) => {
-      if(e.key === "Enter"){
-        para.setAttribute("contentEditable","false");
-      }
-    });
-  });
+form.addEventListener('submit', createStudent);
 
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("button").addEventListener("click", addItem);
-});

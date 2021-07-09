@@ -23,16 +23,16 @@
     </div>
   
     <div class="register-form">
-      <form method="POST">
+      <form class="form1">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Enter Your Name"> 
+        <input name = "name" type="text" id="name" placeholder="Enter Your Name"> 
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter Your Email"> 
+        <input name = "email" type="email" id="email" placeholder="Enter Your Email"> 
         <span>You Must Be At Least 16 to register</span>
         <label for="age">Age</label>
-        <input type="text" id="age" placeholder="Age"> 
+        <input name = "age" type="text" id="age" placeholder="Age"> 
         <label for="address">Address</label>
-        <input type="text" id="address" placeholder="Enter Your Address"> 
+        <input name = "address" type="text" id="address" placeholder="Enter Your Address"> 
         <div class="gender">
           <input type="radio" id="male" name="gender" value="male">
           <label for="male">Male</label>
@@ -46,7 +46,7 @@
           <input type="file" id="pic" name="profile" accept="image/png, image/jpeg">
         </div>
 
-        <button type="button"> Submit Form</button>
+        <input class="submit" type="submit" value = "submit">
         <!--  onclick="getInputValue();" -->
       </form>
     </div>
@@ -56,10 +56,14 @@
   </div>
   <div class="students-list">
     <h2>List of Students</h2>
-    
+    <div class="student-section">
+
+    </div>
   </div>
 
 
+
   <script src="js/index.js"></script>
+  <script src="js/view.js"></script>
 </body>
 </html>
